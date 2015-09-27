@@ -14,6 +14,7 @@ var y = d3.scale.linear()
     .domain([0, height])
     .range([0, height]);
 
+// This is a custom treemap layout. It only calculates layout for one level down.
 var treemap = d3.layout.treemap()
     .children(function(d, depth) { return depth ? null : d._children; })
     .sort(function(a, b) { return a.value - b.value; })
